@@ -6,5 +6,7 @@ Finally, to produce better results, accuracy of model increased using Hard Votin
 After this, the model with highest accuracy used to predict whether person is predicted to have heart disease or not.
 The result obtained is compared using GUI to know whether final result is accurate or not using pre-trained model.
 
+![Model Analysis] [https://github.com/ge-studi/Heart_Disease_Prediction/blob/main/Model_Analysis.png]
+
 
 
