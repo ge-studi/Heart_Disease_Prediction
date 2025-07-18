@@ -5,3 +5,4 @@ After this, cross-validation applied and for k=5,10,15,20,25 accuracy observed o
 Finally, to produce better results, accuracy of model increased using Hard Voting Classifier.
 After this, the model with highest accuracy used to predict whether person is predicted to have heart disease or not.
 The result obtained is compared using GUI to know whether final result is accurate or not using pre-trained model.
+
