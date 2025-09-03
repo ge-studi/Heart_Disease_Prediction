@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h1><b>📝 Feature Descriptions</h1></b><br>
+<div class="features-grid">
+    {% for feature, desc in {
+        'Age':'Age of the person in years',
+        'Sex':'0=Female, 1=Male',
+        'trestbps':'Resting Blood Pressure (mmHg)',
+        'chol':'Cholesterol level (mg/dl)',
+        'fbs':'Fasting Blood Sugar >120 mg/dl = 1, else 0',
+        'thalach':'Maximum Heart Rate achieved',
+        'exang':'Exercise induced angina (0=No,1=Yes)',
+        'oldpeak':'ST depression induced by exercise',
+        'ca':'Number of major vessels colored by fluoroscopy',
+        'cp':'Chest pain type (0-3)',
+        'restecg':'Resting electrocardiographic results (0-2)',
+        'slope':'Slope of the ST segment (0-2)',
+        'thal':'Thalassemia (0-3)'
+    }.items() %}
+    <div class="feature-card">
+        <h3>{{ feature }}</h3>
+        <p>{{ desc }}</p>
+    </div>
+    {% endfor %}
+</div>
+<script>
+    gsap.from(".feature-card", {duration:0, y:30, opacity:1, stagger:0.2});
+</script>
+{% endblock %}

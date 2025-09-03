@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="admin-dashboard">
+    <h1><b>📊 Admin Dashboard</h1></b><br>
+
+    {% if records %}
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    {% for key in records[0].keys() %}
+                    <th>{{ key }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in records %}
+                <tr class="{% if 'Heart Disease Detected' in row['prediction'] %}high-risk
+                            {% elif row['probability'] >= 30 %}medium-risk
+                            {% else %}low-risk{% endif %}">
+                    {% for value in row.values() %}
+                    <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p>No predictions yet.</p>
+    {% endif %}
+
+    <a href="/" class="btn btn-secondary back-btn">Back to Home</a>
+</section>
+{% endblock %}

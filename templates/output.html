@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h1><b>💓 Prediction Result</h1></b><br>
+<p>{{ result }}</p>
+<p>Probability: {{ probability }}%</p>
+
+<div class="prob-bar">
+    <div class="filled" style="width:0%; background: linear-gradient(90deg,
+        {% if probability < 30 %}#4caf50,#8bc34a
+        {% elif probability < 60 %}#ff9800,#ffc107
+        {% else %}#f44336,#e57373{% endif %}
+    );"></div>
+</div>
+
+<p>Risk Level:
+{% if probability < 30 %}Low
+{% elif probability < 60 %}Medium
+{% else %}High{% endif %}</p>
+
+<a href="/predict" class="btn btn-secondary">Back to Predict</a>
+
+<script>
+    gsap.to(".filled", {width: "{{ probability }}%", duration:2});
+</script>
+{% endblock %}

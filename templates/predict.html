@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<h1><b>💖 Heart Disease Predictor</h1></b><br>
+<div class="form-container">
+     <form action="/predict" method="post">
+    <div class="form-grid">
+        {% for col, placeholder, min_val, max_val, step in [
+            ('age','Age',1,120,1), ('sex','Sex (0=F,1=M)',0,1,1), ('trestbps','Resting BP',50,250,1),
+            ('chol','Cholesterol',100,600,1), ('fbs','Fasting BS (>120=1)',0,1,1), ('thalach','Max Heart Rate',50,250,1),
+            ('exang','Exercise Angina',0,1,1), ('oldpeak','ST Depression',0,10,0.1), ('ca','Num of Major Vessels',0,3,1)
+        ] %}
+        <input type="number" name="{{ col }}" placeholder="{{ placeholder }}" min="{{ min_val }}" max="{{ max_val }}" step="{{ step }}" required>
+        {% endfor %}
+
+        <!-- categorical selects -->
+        <select name="cp" required>
+            <option value="">Chest Pain Type</option>
+            <option value="0">Typical Angina</option>
+            <option value="1">Atypical Angina</option>
+            <option value="2">Non-Anginal Pain</option>
+            <option value="3">Asymptomatic</option>
+        </select>
+        <select name="restecg" required>
+            <option value="">Resting ECG</option>
+            <option value="0">Normal</option>
+            <option value="1">ST-T Wave Abnormality</option>
+            <option value="2">Left Ventricular Hypertrophy</option>
+        </select>
+        <select name="slope" required>
+            <option value="">ST Slope</option>
+            <option value="0">Upsloping</option>
+            <option value="1">Flat</option>
+            <option value="2">Downsloping</option>
+        </select>
+        <select name="thal" required>
+            <option value="">Thalassemia</option>
+            <option value="0">Normal</option>
+            <option value="1">Fixed Defect</option>
+            <option value="2">Reversible Defect</option>
+            <option value="3">Unknown</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary">Predict</button>
+    </div>
+</form>
+
+</div>
+<script>
+    gsap.from(".form-container form", {duration:1, opacity:0, y:50});
+</script>
+{% endblock %}

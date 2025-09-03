@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+    <div class="hero-text">
+        <h1><b>💖 Heart Disease Risk Predictor</h1></b><br>
+        <p>Check your risk and understand contributing factors for a healthy heart.</p><br>
+        <a href="/predict" class="btn btn-primary">Predict Now</a>
+        <a href="/details" class="btn btn-secondary">Learn More</a>
+
+    </div>
+    <div class="hero-img">
+        <img src="{{ url_for('static', filename='heart.png') }}" alt="Heart Image">
+    </div>
+</section>
+
+<div class="hearts">
+    {% for i in range(20) %}
+    <div class="heart" style="--i:{{i/20}}"></div>
+    {% endfor %}
+</div>
+
+<script>
+    gsap.from(".hero-text h1", {duration:1, y:-50, opacity:0, ease:"bounce"});
+    gsap.from(".hero-text p", {duration:1, y:50, opacity:0, delay:0.5});
+   
+</script>
+{% endblock %}
