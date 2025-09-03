@@ -41,7 +41,8 @@ Heart_Disease_Project/
 
 Clone the repository:
 
-git clone https://github.com/<your-username>/Heart_Disease_Project.git
+git clone https://github.com/ge-studi/Heart_Disease_Prediction.git
+
 cd Heart_Disease_Project
 
 
